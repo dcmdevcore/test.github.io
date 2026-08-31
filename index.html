@@ -1,10 +1,345 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My GitHub Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scarred.Ae — Video Edits</title>
+<meta name="description" content="Video edits and content services by Scarred.Ae.">
+
+<!-- ============================================================
+     EDIT YOUR LINKS HERE — nothing else below this block needs
+     to change to update the page.
+     ============================================================ -->
+<script>
+  const CONFIG = {
+    // Your PayPal.me username (the part after paypal.me/) — no account
+    // details are ever shown on the page, just a link.
+    paypalUsername: "yourpaypalname",
+
+    // Your TikTok handle, shown as the primary platform link.
+    tiktok: {
+      handle: "@Scarred.Ae",
+      url: "https://www.tiktok.com/@scarred.ae"
+    },
+
+    // Add, remove, or edit entries here for YouTube and any future
+    // channels. Each needs a label and a url. Leave the array item
+    // out entirely to hide it — no need to touch the HTML.
+    otherLinks: [
+      { label: "YouTube", url: "https://www.youtube.com/@scarred.ae1" }
+      // { label: "Instagram", url: "https://instagram.com/yourhandle" },
+      // { label: "Twitch", url: "https://twitch.tv/yourhandle" },
+    ],
+
+    services: [
+      {
+        name: "Short-form edits",
+        detail: "TikTok and Reels cuts, paced for retention and built to loop."
+      },
+      {
+        name: "Color and sound",
+        detail: "Grading, sound design, and mix passes on footage you already have."
+      },
+      {
+        name: "Full channel package",
+        detail: "Ongoing edits for a channel — thumbnails, captions, and delivery on a schedule."
+      }
+    ]
+  };
+</script>
+
+<style>
+  :root {
+    --bg: #1a1816;
+    --surface: #221f1c;
+    --ink: #efe9df;
+    --ink-dim: #a39a8e;
+    --line: #34302b;
+    --ember: #c1502e;
+    --ember-soft: #c1502e33;
+    --teal: #3f5d58;
+    --radius: 3px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero {
+    padding: 96px 0 64px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero__mark {
+    font-family: "Space Grotesk", "Inter", sans-serif;
+    font-weight: 600;
+    font-size: clamp(2.6rem, 8vw, 4rem);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin: 0;
+    opacity: 0;
+    animation: rise 0.6s ease-out forwards;
+  }
+
+  .hero__mark span {
+    color: var(--ember);
+  }
+
+  .hero__tagline {
+    margin: 20px 0 0;
+    max-width: 42ch;
+    font-size: 1.05rem;
+    color: var(--ink-dim);
+    opacity: 0;
+    animation: rise 0.6s ease-out 0.1s forwards;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+    opacity: 0;
+    animation: rise 0.6s ease-out 0.2s forwards;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--line);
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .btn:focus-visible {
+    outline: 2px solid var(--ember);
+    outline-offset: 2px;
+  }
+
+  .btn--primary {
+    background: var(--ember);
+    border-color: var(--ember);
+    color: #fff8f3;
+  }
+
+  .btn--primary:hover {
+    background: #a8452a;
+    border-color: #a8452a;
+  }
+
+  .btn--ghost {
+    background: transparent;
+    color: var(--ink);
+  }
+
+  .btn--ghost:hover {
+    border-color: var(--ink-dim);
+    background: var(--surface);
+  }
+
+  /* ---------- Sections ---------- */
+
+  section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  section:last-of-type {
+    border-bottom: none;
+  }
+
+  h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0 0 28px;
+  }
+
+  /* ---------- Services ---------- */
+
+  .service {
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .service:last-child {
+    padding-bottom: 0;
+  }
+
+  .service__name {
+    font-weight: 600;
+    font-size: 1.05rem;
+  }
+
+  .service__detail {
+    color: var(--ink-dim);
+    font-size: 0.95rem;
+    max-width: 52ch;
+  }
+
+  /* ---------- Links ---------- */
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .link-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color 0.15s ease;
+  }
+
+  .link-row:hover {
+    border-color: var(--teal);
+  }
+
+  .link-row__label {
+    font-weight: 500;
+  }
+
+  .link-row__go {
+    color: var(--ink-dim);
+    font-size: 0.9rem;
+  }
+
+  /* ---------- Support ---------- */
+
+  .support p {
+    color: var(--ink-dim);
+    max-width: 46ch;
+    margin: 0 0 24px;
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    padding: 32px 0 64px;
+    color: var(--ink-dim);
+    font-size: 0.85rem;
+  }
+</style>
 </head>
+
 <body>
-    <h1>Hello World!</h1>
-    <p>Welcome to my GitHub Pages website.</p>
+
+  <div class="wrap">
+
+    <header class="hero">
+      <p class="hero__mark">Scarred<span>.Ae</span></p>
+      <p class="hero__tagline">Video edits for creators who want their footage to actually hold attention.</p>
+      <div class="hero__actions" id="heroActions"></div>
+    </header>
+
+    <section id="services">
+      <h2>Services</h2>
+      <div id="serviceList"></div>
+    </section>
+
+    <section id="watch">
+      <h2>Watch</h2>
+      <div class="links" id="watchLinks"></div>
+    </section>
+
+    <section class="support" id="support">
+      <h2>Support the work</h2>
+      <p>If an edit helped your channel, a tip goes straight toward better gear and faster turnarounds.</p>
+      <a class="btn btn--primary" id="paypalBtn" href="#" target="_blank" rel="noopener">Send a tip on PayPal</a>
+    </section>
+
+    <footer>
+      <p>Scarred.Ae — edits on request.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Hero actions: TikTok as the primary call to action.
+    const heroActions = document.getElementById("heroActions");
+    heroActions.innerHTML = `
+      <a class="btn btn--primary" href="${CONFIG.tiktok.url}" target="_blank" rel="noopener">
+        Follow on TikTok
+      </a>
+      <a class="btn btn--ghost" href="#support">Send a tip</a>
+    `;
+
+    // Services list.
+    const serviceList = document.getElementById("serviceList");
+    serviceList.innerHTML = CONFIG.services.map(s => `
+      <div class="service">
+        <div class="service__name">${s.name}</div>
+        <div class="service__detail">${s.detail}</div>
+      </div>
+    `).join("");
+
+    // Watch links: TikTok first, then whatever is in otherLinks.
+    const watchLinks = document.getElementById("watchLinks");
+    const allLinks = [
+      { label: `TikTok — ${CONFIG.tiktok.handle}`, url: CONFIG.tiktok.url },
+      ...CONFIG.otherLinks
+    ];
+    watchLinks.innerHTML = allLinks.map(link => `
+      <a class="link-row" href="${link.url}" target="_blank" rel="noopener">
+        <span class="link-row__label">${link.label}</span>
+        <span class="link-row__go">Open</span>
+      </a>
+    `).join("");
+
+    // PayPal button — links out to paypal.me, never displays account info.
+    document.getElementById("paypalBtn").href = `https://paypal.me/${CONFIG.paypalUsername}`;
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
+
 </body>
 </html>
